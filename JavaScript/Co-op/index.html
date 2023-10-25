@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Run JavaScript</title>
+
+    <script src="intra.js"></script>
+    <script src="functional.js"></script>
+    <script src="filtering.js"></script>
+    <script src="point_to_point.js"></script>
+    <script src="point_to_set.js"></script>
+    <script src="set_to_set.js"></script>
+    <script src="counterfactual.js"></script> 
+    
+</head>
+<body>
+
+<h1>JavaScript CoOp</h1>
+
+<script>
+    /* INTRA.JS SAMPLE USAGE */
+    const S = [1, 2, 3, 4, 5];
+    const intraWeights = [0.2, 0.2, 0.2, 0.2, 0.2];
+
+    console.log("Variance:", variance(S));
+    console.log("Weighted Variance:", variance_w(S, intraWeights));
+    console.log("Entropy:", entropy(S));
+    console.log("Weighted Entropy:", entropy_w(S, intraWeights));
+    
+
+    /* FUNCTIONAL.JS SAMPLE USAGE */
+    const leftSet = [{ a: 1, b: 2 }, { a: 3, b: 4 }];
+    const rightSet = [{ a: 3, b: 4 }, { a: 5, b: 6 }];
+    const data = [{ a: 7, b: 8 }, { a: 9, b: 10 }];
+    const dims = ['a', 'b'];
+    
+    console.log("Union:", union(leftSet, rightSet, dims));
+    console.log("Difference:", difference(leftSet, rightSet, dims));
+    console.log("Intersection:", intersection(leftSet, rightSet, dims));
+    console.log("Complement:", complement(data, leftSet, dims));
+
+    // Optional function to print dataframe
+    printDataFrame(union(leftSet, rightSet, dims), "Union:");
+    printDataFrame(difference(leftSet, rightSet, dims), "Difference:");
+    printDataFrame(intersection(leftSet, rightSet, dims), "Intersection:");
+    printDataFrame(complement(data, leftSet, dims), "Complement:");
+
+    /* FILTERING.JS EXAMPLE */
+    const filteringS = [
+      { a: 1, b: 2 },
+      { a: 3, b: 4 },
+      { a: 5, b: 6 },
+      { a: 7, b: 8 }
+    ];
+  
+    const constraints = [
+      ['a', x => x % 2 === 0],
+      ['b', x => x > 4]
+    ];
+  
+    const [inSet, exSet] = filtering(constraints, filteringS);
+    console.log("In Set:", inSet);
+    console.log("Ex Set:", exSet);
+  
+    const groups = groupby(constraints, filteringS);
+    console.log("Groups:", groups);
+
+    // Optional function to print dataframe
+    printFilteredDataFrame(inSet, "In Set:");
+    printFilteredDataFrame(exSet, "Ex Set:");
+    printFilteredDataFrame(groups, "Groups:");
+    
+    /* POINT TO POINT EXAMPLE */
+    const p = [1, 2, 3];
+    const q = [4, 5, 6];
+    const pointWeights = [0.5, 0.5, 0.5];  // Renamed to pointWeight
+    
+    console.log("Euclidean Distance:", pd(p, q));
+    console.log("Custom Euclidean Distance:", pd(p, q, 'customize'));
+    console.log("Weighted Euclidean Distance:", pd_w(p, q, pointWeights));  // Use pointWeights here
+
+    /* POINT TO SET EXAMPLE */
+    const ps = [1, 2, 3];
+    const S3 = [
+      { a: 4, b: 5, c: 6 },
+      { a: 7, b: 8, c: 9 },
+      { a: 10, b: 11, c: 12 }
+    ];
+    
+    const pointToSetWeights = [0.5, 0.5, 0.5];
+  
+    console.log("Average Pairwise Distance:", pd_avg(ps, S3));
+    console.log("Weighted Average Pairwise Distance:", pd_avg_w(ps, S3, pointToSetWeights));
+
+    /* SET TO SET EXAMPLE */
+    const S1 = [
+      { a: 1, b: 4, c: 7 },
+      { a: 2, b: 5, c: 8 },
+      { a: 3, b: 6, c: 9 }
+    ];
+    
+    const S2 = [
+      { a: 10, b: 13, c: 16 },
+      { a: 11, b: 14, c: 17 },
+      { a: 12, b: 15, c: 18 }
+    ];
+    
+    const s2sWeights = [0.5, 0.5, 0.5];
+    
+    console.log("sd:", sd(S1, S2));
+    console.log("sd_w:", sd_w(S1, S2, s2sWeights));
+    console.log("sd_entropy:", sd_entropy(S1, S2));
+    console.log("sd_entropy_w:", sd_entropy_w(S1, S2, s2sWeights));
+
+
+    /* COUNTERFACTUAL SAMPLE */
+    const inSet2 = [10];
+    const exSet2 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const measures = [[1, customMeasure]];
+    
+    const [cfSet, remSet] = counterfactual(inSet2, exSet2, measures)
+    console.log("Counterfactual Set:", cfSet);
+    console.log("Remaining Set:", remSet);
+
+</script>
+
+</body>
+</html>

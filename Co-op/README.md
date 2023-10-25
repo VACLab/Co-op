@@ -8,6 +8,8 @@ Still NOT uploaded to PYPI currently to meet the anonymity requirements, will up
 
 Import packages directly if you want to use it. Import operators package only if you've implemented your own measures.
 
+A JavaScript implementation of Co-op is attached in the folder ./JavaScript as well.
+
 ## Usage
 
 Usage demo for filtering operators is as follows:

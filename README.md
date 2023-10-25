@@ -1,14 +1,12 @@
 # Co-op
 
-Co-op is a python library consists of a set of measures and operators that can compute counterfactual subsets of input dataset for designing and implementing visualization systems.
+Co-op is a python library consists of a set of measures (./src/measures) and operators (./src/operators) that can compute counterfactual subsets of input dataset for designing and implementing visualization systems.
 
 See the paper for more details about the subset computation theory, operator-based model, measures, and operators.
 
-Still NOT uploaded to PYPI currently to meet the anonymity requirements, will upload it after the review cycle.
-
 Import packages directly if you want to use it. Import operators package only if you've implemented your own measures.
 
-A JavaScript implementation of Co-op is attached in the folder ./JavaScript as well.
+A JavaScript implementation of Co-op is attached in the folder ./utils/JavaScript as well.
 
 ## Usage
 

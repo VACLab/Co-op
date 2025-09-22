@@ -1,12 +1,11 @@
 # Co-op
 
-Co-op is a python library consists of a set of measures (./src/measures) and operators (./src/operators) that can compute counterfactual subsets of input dataset for designing and implementing visualization systems.
-
-See the paper for more details about the subset computation theory, operator-based model, measures, and operators.
+Co-op is a python library consists of a set of measures (./src/measures) and operators (./src/operators) that can compute counterfactual subsets of input dataset for designing and implementing visualization systems. See the [Counterfactual Operators](https://vaclab.unc.edu/publication/iv_2024_wang_b/) paper for details.
 
 Import packages directly if you want to use it. Import operators package only if you've implemented your own measures.
 
-A JavaScript implementation of Co-op is attached in the folder ./utils/JavaScript as well.
+The functions for computation of counterfactual guidance are under ./src/measures/cf_guidance.py. Use get_cf_guidance_score to compute the counterfactual guidance value and get_distribution_score to compute the subset distribution score. See the [Counterfactual Guidance](https://vaclab.unc.edu/publication/tvcg_2025_wang_b/) paper for details.
+
 
 ## Usage
 
@@ -91,3 +90,32 @@ def customized_measure(p, S, weights=[1, 0.5, 3, 8, 21], measure='mahalanobis', 
         res += p2p.pd_w(p, row.tolist(), weights)
     return res
 ```
+
+## Reference
+
+```bibtex
+@ARTICLE{wang_beyond_2025,
+    title={{Beyond Correlation: Incorporating Counterfactual Guidance to
+    Better Support Exploratory Visual Analysis}},
+    author={Wang, Arran Zeyu and Borland, David and Gotz, David},
+    journal={IEEE transactions on visualization and computer graphics},
+    volume={31},
+    number={1},
+    pages={776--786},
+    year={2025}
+    doi={10.1109/TVCG.2024.3456369}
+}
+
+
+```bibtex
+@article{wang_framework_2024,
+    title = {{A Framework to Improve Causal Inferences from Visualizations Using Counterfactual Operators}},
+    author = {Wang, Arran Zeyu and Borland, David and Gotz, David},
+    journal={Information Visualization},
+    volume={24},
+    number={1},
+    pages={24--41},
+    year={2025},
+    publisher={SAGE Publications Sage UK: London, England},
+    doi={10.1177/14738716241265120}
+}

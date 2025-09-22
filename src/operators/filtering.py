@@ -21,4 +21,3 @@ def groupby(constraints, S):
         new_group = S.loc[S[val[0]].isin(fvals)]
         groups.append(new_group)
     return groups
-

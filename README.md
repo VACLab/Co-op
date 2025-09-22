@@ -6,6 +6,8 @@ Import packages directly if you want to use it. Import operators package only if
 
 The functions for computation of counterfactual guidance are under ./src/measures/cf_guidance.py. Use get_cf_guidance_score to compute the counterfactual guidance value and get_distribution_score to compute the subset distribution score. See the [Counterfactual Guidance](https://vaclab.unc.edu/publication/tvcg_2025_wang_b/) paper for details.
 
+The functions for computation of differential guidance are under ./src/measures/diff_guidance.py. Use compute_guidance to compute the potential effect and confounding signal values as well as interpretations and suggestes confounders.
+
 
 ## Usage
 
@@ -95,8 +97,7 @@ def customized_measure(p, S, weights=[1, 0.5, 3, 8, 21], measure='mahalanobis', 
 
 ```bibtex
 @ARTICLE{wang_beyond_2025,
-    title={{Beyond Correlation: Incorporating Counterfactual Guidance to
-    Better Support Exploratory Visual Analysis}},
+    title={{Beyond Correlation: Incorporating Counterfactual Guidance to Better Support Exploratory Visual Analysis}},
     author={Wang, Arran Zeyu and Borland, David and Gotz, David},
     journal={IEEE transactions on visualization and computer graphics},
     volume={31},
@@ -106,8 +107,6 @@ def customized_measure(p, S, weights=[1, 0.5, 3, 8, 21], measure='mahalanobis', 
     doi={10.1109/TVCG.2024.3456369}
 }
 
-
-```bibtex
 @article{wang_framework_2024,
     title = {{A Framework to Improve Causal Inferences from Visualizations Using Counterfactual Operators}},
     author = {Wang, Arran Zeyu and Borland, David and Gotz, David},
@@ -119,3 +118,4 @@ def customized_measure(p, S, weights=[1, 0.5, 3, 8, 21], measure='mahalanobis', 
     publisher={SAGE Publications Sage UK: London, England},
     doi={10.1177/14738716241265120}
 }
+```

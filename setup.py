@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="Co-op",
-    version="0.0.2",
+    version="0.0.3",
     author="Arran Zeyu Wang",
     author_email="anonymous@anonymous.com",
     description="Counterfactual operators (Co-op) lib to improve causal inferences from visualizations.",

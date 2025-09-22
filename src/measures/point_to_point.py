@@ -15,3 +15,9 @@ def pd(p, q, measure=None, function=None):
 #- Function to calculate weighted pairwise distance
 def pd_w(p, q, weights, measure=None, function=None):
     return pd(np.multiply(p, weights), np.multiply(q, weights), measure, function)
+
+#- Function to calculate Power distance between two points
+def pd_power(p, q, power=2):
+    p = np.array(p)
+    q = np.array(q)
+    return np.sum(np.abs(p - q) ** power) ** (1.0 / power)
